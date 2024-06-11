@@ -1,6 +1,6 @@
-# Nombre del Proyecto
+# Shopflix
 
-Descripción breve del proyecto y su propósito.
+This is an ecommerce based in MercadoLibre.com.ar API for programming subject.
 
 ## Requisitos
 
