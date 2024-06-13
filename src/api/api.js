@@ -44,3 +44,18 @@ export async function fetchSelectedProducts(selectedIds) {
         throw error;
     }
 }
+
+
+export const SearchResults = async (query) => {
+    try {
+        const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${query}`);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        return data.results;
+    } catch (error) {
+        console.error('Error fetching search results:', error);
+        throw error;
+    }
+};
