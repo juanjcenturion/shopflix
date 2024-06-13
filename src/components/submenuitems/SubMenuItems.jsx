@@ -1,22 +1,20 @@
 import { useState, useEffect } from 'react';
+import { GetAllCategories } from '../../api/api';
 
-export default function Categories() {
+export default function SubMenuItems() {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetch('https://api.mercadolibre.com/sites/MLA/categories')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
+        const getCategories = async () => {
+            try {
+                const data = await GetAllCategories();
                 setCategories(data);
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error('Error al obtener las categorías:', error);
-            });
+            }
+        };
+
+        getCategories();
     }, []);
 
     return (

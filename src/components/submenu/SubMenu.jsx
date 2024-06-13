@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Categories from "../categories/Categories";
+import SubMenuItems from "../submenuitems/SubMenuItems";
 
 export default function SubMenu() {
     const [showSubMenu, setShowSubMenu] = useState(false);
@@ -15,7 +15,7 @@ export default function SubMenu() {
             { showSubMenu && (
                 <div className="absolute mt-4 z-10 from-white to-yellow-100 bg-gradient-to-b rounded-md overflow-hidden shadow-xl">
                     <div className="">
-                        <Categories/>
+                        <SubMenuItems/>
                     </div>
                 </div>
             )}
