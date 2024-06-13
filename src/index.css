@@ -17,3 +17,11 @@ html {
     font-family: 'Poppins', sans-serif !important;
     font-weight: normal !important;
 }
+@layer utilities {
+    .text-corte-2 {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
+  }
