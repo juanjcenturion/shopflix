@@ -11,7 +11,7 @@ export default function SubMenu() {
 
     return (
         <div className="relative">
-            <button onClick={toggleSubMenu} className="text-sm pb-1 pt-1 align-middle text-gray-700 font-medium hover:text-indigo-500 md:mx-4 ">Categorias</button>
+            <button onClick={toggleSubMenu} className="text-sm pb-1 pt-1 align-middle text-gray-700 font-medium transition duration-300 ease-in-out hover:text-indigo-500 md:mx-4 ">Categorias</button>
             { showSubMenu && (
                 <div className="absolute mt-4 z-10 bg-white rounded-md overflow-hidden shadow-xl">
                     <div className="">
