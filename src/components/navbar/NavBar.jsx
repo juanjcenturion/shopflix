@@ -2,12 +2,12 @@ import SubMenu from "../submenu/SubMenu"
 
 export default function NavBar() {
     return (
-        <nav className="bg-white shadow">
+        <nav className="bg-white shadow fixed top-0 w-full z-50">
             <div className="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
                 <div className="flex justify-between items-center">
                     <div className="flex justify-start items-center">
                         <img src="src/assets/img/logotype.png" className="w-12 mr-2" />
-                        <a className="text-gray-800 text-xl font-bold md:text-2xl hover:text-gray-700" href="#">Shopflix</a>
+                        <a className="text-gray-800 text-xl font-bold md:text-2xl hover:text-gray-700 uppercase" href="#">Shopflix</a>
                     </div>
                     <div className="flex md:hidden">
                         <button type="button" className="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
@@ -17,7 +17,7 @@ export default function NavBar() {
                         </button>
                     </div>
                 </div>
-                <div className="flex justify-center items-center">
+                <div className="flex ml-44 justify-center items-center">
                         <input className=" w-80 h-12 border rounded-md rounded-r-none text-center focus:outline-none" type="text" placeholder="Buscar" />
                         <button className="bg-gray-800 text-white w-32 h-12 rounded-md rounded-l-none hover:bg-indigo-500">Buscar</button>
                     </div>
