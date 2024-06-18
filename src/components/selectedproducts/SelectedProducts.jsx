@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchSelectedProducts } from "../../api/api";
 import { formatearNumero } from "../../utils/sepMiles";
+import { Link } from "react-router-dom";
 
 export default function SelectedProducts () {
     const [products, setProducts] = useState([]);
@@ -24,10 +25,10 @@ export default function SelectedProducts () {
                 <div className="grid grid-cols-6 gap-4 pb-8 ml-4 mr-4">
                     {products.map(product => (
                         <div key={product.id} className="bg-white border pb-10 rounded-lg shadow-md px-4 text-center cursor-pointer transition-transform ease-linear duration-100s">
-                            <a className=" mb-4 rounded-full hover:text-indigo-600">
+                            <Link to={`/details_product/${product.id}`} className=" mb-4 rounded-full hover:text-indigo-600">
                                 <img className="mt-8 mb-2 mx-auto" src={product.thumbnail} alt={product.title} />
                                 <a className="text-corte-2 text-left text-sm"  > {product.title} </a>
-                            </a>
+                            </Link>
                             <div className="">
                                 <p className="ml-1 mt-3 text-2xl font-medium text-left">{formatearNumero(product.price)}</p>
                             </div>
