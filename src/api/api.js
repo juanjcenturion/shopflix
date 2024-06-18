@@ -48,7 +48,7 @@ export async function fetchSelectedProducts(selectedIds) {
 
 export const SearchResults = async (query) => {
     try {
-        const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=6`);
+        const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${query}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
