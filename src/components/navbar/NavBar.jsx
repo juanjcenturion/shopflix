@@ -8,7 +8,7 @@ export default function NavBar() {
                 <div className="flex justify-between items-center">
                     <div className="flex justify-around items-center">
                         <img src="src/assets/img/logotype.png" className="w-12 mr-2" />
-                        <a className="flex text-gray-800 text-xl font-bold md:text-2xluppercase" href="#">
+                        <a className="flex text-gray-800 text-xl font-bold md:text-2xluppercase" href="/">
                             <p className="text-indigo-500 transition ease-in-out duration-300 hover:text-yellow-500" >Shop</p>
                             <p className="text-gray-800" >flix</p>
                         </a>

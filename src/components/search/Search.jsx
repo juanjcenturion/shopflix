@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { SearchResults } from "../../api/api";
 import './search.css'
+import { useNavigate } from "react-router-dom";
 
 function Search() {
     const [query, setQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [charge, setCharge] = useState(false);
+    const navigate = useNavigate()
 
     const manageSearch = async () => {
         if (!query) return;
@@ -33,6 +35,11 @@ function Search() {
         setQuery('');
         setSearchResults([]);
     };
+
+    const manageViewMore = () => {
+        navigate(`/products?search=${encodeURIComponent(query)}`);
+        clearSearch()
+    }
 
     return (
         <div className="relative text-center ml-44">
@@ -72,17 +79,17 @@ function Search() {
                     </div>
                 ) : (
                     <>
-                        {searchResults.map(result => (
+                        {searchResults.slice(0, 6).map(result => (
                             <a key={result.id} className="flex cursor-pointer justify-stretched items-center p-5 my-3 ml-2 mr-2 bg-gradient-to-r from-white to-gray-100 hover:shadow-md rounded-md transition duration-500">
                                 <img className="max-w-16" src={result.thumbnail} alt={result.title} />
                                 <h3 className="text-s font-bold ml-6">{result.title}</h3>
                             </a>
                         ))}
-                        {searchResults.length === 6 && (
+                        {searchResults.length > 6 && (
                             <div className="text-center text-indigo-500 ml-2 mr-2 rounded mb-2 hover:bg-indigo-400 hover:text-white transition duration-500 p-5">
-                                <a href='' className=" font-bold">
+                                <button onClick={manageViewMore} className="font-bold">
                                     Ver más productos similares
-                                </a>
+                                </button>
                             </div>
                         )}
                     </>
