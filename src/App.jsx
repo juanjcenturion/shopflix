@@ -3,6 +3,7 @@ import NavBar from './components/navbar/NavBar'
 import Home from './routes/Home'
 import DetailsProduct from './routes/DetailsProduct'
 import Footer from "./components/footer/Footer";
+import Cart from "./routes/Cart";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/details_product" element={<DetailsProduct/>}/>
+          <Route path="/cart" element={<Cart/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>
