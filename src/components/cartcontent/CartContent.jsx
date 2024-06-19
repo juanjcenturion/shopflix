@@ -5,7 +5,7 @@ import { formatearNumero } from "../../utils/sepMiles";
 import CartItem from "../cartitem/CartItem";
 import CartSummary from "../cartsummary/CartSummary";
 
-export default function CartItems() {
+export default function CartContent() {
     const { cart, cartCount } = useCart();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
