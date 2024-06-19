@@ -5,11 +5,19 @@ export const getCart = () => {
     return cart ? JSON.parse(cart) : [];
 };
 
-export const addToCart = (product) => {
+export const addToCart = (productId, quantity = 1) => {
     const cart = getCart();
-    cart.push(product);
+    const existingProductIndex = cart.findIndex(item => item.id === productId);
+
+    if (existingProductIndex !== -1) {
+        cart[existingProductIndex].quantity += quantity;
+    } else {
+        cart.push({ id: productId, quantity });
+    }
+
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }
+
 
 export const removeFromCart = (productId) => {
     let cart = getCart();
