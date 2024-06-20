@@ -25,6 +25,14 @@ export const removeFromCart = (productId) => {
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }
 
+export const updateCartQuantity = (id, quantity) => {
+    const cart = getCart();
+    const updatedCart = cart.map(item => 
+        item.id === id ? { ...item, quantity } : item
+    );
+    localStorage.setItem("shopflix_cart", JSON.stringify(updatedCart));
+}
+
 export const clearCart = () => {
     localStorage.removeItem(CART_KEY);
 }

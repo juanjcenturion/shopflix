@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import { getCartItemCount, getCart, addToCart as addProductToCart, removeFromCart as removeProductFromCart, clearCart as clearShoppingCart } from "../utils/cartStorage";
+import { getCartItemCount, updateCartQuantity, getCart, addToCart as addProductToCart, removeFromCart as removeProductFromCart, clearCart as clearShoppingCart } from "../utils/cartStorage";
 
 
 const CartContext = createContext();
@@ -17,6 +17,11 @@ export const CartProvider = ({ children }) => {
         setCart(getCart());
     };
 
+    const updateQuantityInCart = (id, quantity) => {
+      updateCartQuantity(id, quantity)
+      setCart(getCart())
+    };
+
     const clearCart = () => {
         clearShoppingCart();
         setCart([]);
@@ -25,7 +30,7 @@ export const CartProvider = ({ children }) => {
     const cartCount = cart.length;
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart, cartCount }}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart, cartCount, updateQuantityInCart }}>
             {children}
         </CartContext.Provider>
     );
