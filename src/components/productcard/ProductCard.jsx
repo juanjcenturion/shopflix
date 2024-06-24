@@ -1,13 +1,15 @@
 import React from "react";
 import { formatearNumero } from "../../utils/sepMiles";
 import { useCart } from "../../context/cartContext";
+import { useFav } from "../../context/favContext";
 
 const ProductCard = ({ product }) => {
     const { addToCart } = useCart();
+    const { addToFav } = useFav();
 
     return (
         <div className="border mb-2 rounded-lg shadow-md h-96 text-center cursor-pointer bg-white transition-transform ease-linear duration-100">
-            <div className="pt-2 px-2 hover:text-indigo-600">
+            <div onClick={() => addToFav(product.id)} className="pt-2 px-2 hover:text-indigo-600">
                 <svg className="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"/>
                 </svg>
