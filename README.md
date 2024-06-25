@@ -12,7 +12,7 @@ This is an ecommerce based in MercadoLibre.com.ar API for programming subject.
 1. Clona el repositorio:
 
    ```sh
-   git clone https://github.com/tu-usuario/tu-repositorio.git
+   git clone https://github.com/tu-usuario/tu-repositorio.git](https://github.com/juanjcenturion/shopflix.git
     ```
 2. Entra en el directorio del proyecto:
 
