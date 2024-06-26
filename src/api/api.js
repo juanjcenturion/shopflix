@@ -19,9 +19,17 @@ export async function GetProductById (id) {
             throw new Error('Response not ok');
         }
         const data = await response.json();
-        return data;
+
+        // Obtener descripción del producto
+        const descriptionResponse = await fetch(`https://api.mercadolibre.com/items/${id}/description`);
+        if (!descriptionResponse.ok) {
+            throw new Error('Error al obtener la descripción del producto');
+        }
+        const descriptionData = await descriptionResponse.json();
+
+        return {...data, description: descriptionData.plain_text,}
     } catch (error) {
-        console.error('Error fetching categories:', error);
+        console.error('Error al obtener el producto:', error);
         throw error;
     }
 }
@@ -57,5 +65,20 @@ export const SearchResults = async (query) => {
     } catch (error) {
         console.error('Error fetching search results:', error);
         throw error;
+    }
+};
+
+export const getShippingMessage = (shippingMode) => {
+    switch (shippingMode) {
+      case 'me1':
+        return "Mercado Envíos 1: Calculador de envíos con elección de transportista por el vendedor.";
+      case 'me2':
+        return "Mercado Envíos 2: Envío recomendado con etiqueta y transportista predefinido.";
+      case 'custom':
+        return "Envío Personalizado: Tabla de costos definida por el vendedor.";
+      case 'not_specified':
+        return "Envío no especificado: Contacta al vendedor para acordar el costo.";
+      default:
+        return "Modo de envío desconocido.";
     }
 };

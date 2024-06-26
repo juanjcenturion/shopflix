@@ -30,48 +30,49 @@ export default function ProductSlide({
         <section {...props}>
             {isOpenModal && (
                 <button
-                    className="col-span-4 text-right"
+                    className="grid col-[8/8]"
                     onClick={handleCloseModal}
                 >
                     cerrar
                 </button>
             )}
-            <div className="relative col-span-4">
+            <div className="grid col-span-2 mx-auto">
+                {ARRAY_IMG_SMALL.map((smallImg, idx) => (
+                            <img
+                                key={idx}
+                                src={smallImg}
+                                alt={`Thumbnail ${idx + 1}`}
+                                className={`w-16 h-16 rounded-md cursor-pointer ${index === idx ? "border-2 border-indigo-500" : ""}`}
+                                onClick={() => setIndex(idx)}
+                            />
+                ))}
+            </div>
+            <div className="grid col-span-4">
                 <img
                     src={ARRAY_IMGS[index]}
                     alt={`Product Image ${index + 1}`}
-                    className="aspect-[1/1] w-full cursor-pointer"
+                    className="cursor-pointer"
                     onClick={handleOpenModal}
                 />
                 <div
                     ref={btnSlider}
-                    className="absolute top-1/2 left-0 flex w-full -translate-y-1/2 justify-between px-4 md:hidden"
+                    className="absolute top-1/2 left-0 pr-20 flex w-full -translate-y-1/2 justify-between md:hidden"
                 >
                     <button
-                        className="grid h-10 w-10 place-items-center rounded-full bg-white shadow"
+                        className="grid h-10 w-10 place-items-center rounded-full bg-indigo-500 hover:bg-yellow-400 shadow"
                         onClick={handleClickPrev}
                     >
                         <FaAngleLeft />
                     </button>
                     <button
-                        className="grid h-10 w-10 place-items-center rounded-full bg-white shadow"
+                        className="grid h-10 w-10 place-items-center rounded-full bg-indigo-500 hover:bg-yellow-400 shadow"
                         onClick={handleClickNext}
                     >
                         <FaAngleRight />
                     </button>
                 </div>
             </div>
-            <div className="flex justify-center space-x-2 mt-2">
-                {ARRAY_IMG_SMALL.map((smallImg, idx) => (
-                    <img
-                        key={idx}
-                        src={smallImg}
-                        alt={`Thumbnail ${idx + 1}`}
-                        className={`w-16 h-16 rounded-md cursor-pointer ${index === idx ? "border-2 border-blue-500" : ""}`}
-                        onClick={() => setIndex(idx)}
-                    />
-                ))}
-            </div>
+            
         </section>
     );
 }
