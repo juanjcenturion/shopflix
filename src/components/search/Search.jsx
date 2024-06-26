@@ -80,7 +80,7 @@ function Search() {
                 ) : (
                     <>
                         {searchResults.slice(0, 6).map(result => (
-                            <a key={result.id} className="flex cursor-pointer justify-stretched items-center p-5 my-3 ml-2 mr-2 bg-gradient-to-r from-white to-gray-50 hover:shadow-md rounded-md transition duration-500">
+                            <a key={result.id} href={`/details_product/${result.id}`} className="flex cursor-pointer justify-stretched items-center p-5 my-3 ml-2 mr-2 bg-gradient-to-r from-white to-gray-50 hover:shadow-md rounded-md transition duration-500">
                                 <img className="max-w-16" src={result.thumbnail} alt={result.title} />
                                 <h3 className="text-s ml-6">{result.title}</h3>
                             </a>
