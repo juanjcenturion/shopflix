@@ -1,16 +1,19 @@
 import React from "react";
+import { useState } from "react";
 import { useCart } from "../../context/cartContext";
 import { formatearNumero } from "../../utils/sepMiles";
+import ConfirmModal from "../confirmModal/ConfirmModal";
 
 const CartSummary = ({ products }) => {
     const { cart, cartCount } = useCart();
+    const [showModal, setShowModal] = useState(false);
     
     const bruto = products.reduce((total, product) => {
         const totalPorProducto = product.product.price * product.quantity;
         return total + totalPorProducto;
     }, 0);
 
-    const envioValueStandard = 6900
+    const envioValueStandard = products.some(product => product.product.shipping?.free_shipping) ? 0 : 6900;
     
     const neto = bruto + envioValueStandard
 
@@ -29,7 +32,14 @@ const CartSummary = ({ products }) => {
                     <p>Envío</p>
                 </div>
                 <div className="col-span-6 mx-4 text-right mt-6">
-                    <p className="font-semibold">{formatearNumero(envioValueStandard)}</p>
+                    {envioValueStandard === 0 ? (
+                        <p className="text-green-500 ml-2  pb-4 text-right text-md">
+                            Gratis
+                        </p>
+                    ) : (
+                        <p className="font-semibold">{formatearNumero(envioValueStandard)}</p>
+                    )}
+                    
                 </div>
                 <div className="col-span-12 mx-4 mt-6">
                     <p className=" text-blue-500 font-semibold flex hover:text-blue-600 cursor-pointer ">
@@ -52,10 +62,18 @@ const CartSummary = ({ products }) => {
                 <div className="col-span-6 mx-4 text-right mt-8">
                     <p className="font-semibold text-lg">{formatearNumero(neto)}</p>
                 </div>
-                <div className="col-span-12 flex justify-center bg-blue-500 rounded-md shadow-md py-4 mx-4 mt-10">
-                    <button className="font-bold text-white">Continuar compra</button>
+                <div className="col-span-12 text-center mx-4">
+                    <div className="flex justify-center items-center mb-4 mt-8">
+                        <button
+                            className="bg-blue-500 hover:bg-blue-600 text-white w-full font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline"
+                            onClick={() => setShowModal(true)}
+                        >
+                            Continuar compra
+                        </button>
+                    </div>
+                    {showModal && <ConfirmModal envio={envioValueStandard} products={products} neto={neto} onClose={() => setShowModal(false)} />}
                 </div>
-            </div>
+                </div>
         </div>
     );
 };

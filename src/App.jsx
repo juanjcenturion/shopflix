@@ -8,6 +8,7 @@ import Products from "./routes/Products";
 import { CartProvider } from "./context/cartContext";
 import { FavProvider } from "./context/favContext";
 import Favorites from "./routes/Favorites";
+import { routes } from "./utils/router";
 
 
 
@@ -19,12 +20,14 @@ export default function App() {
           <FavProvider>
             <NavBar/>
               <Routes>
-                <Route path="/" element={<Home/>} />
-                <Route path="/details_product" element={<DetailsProduct/>}/>
-                <Route path="/products" element={<Products/>}/>
-                <Route path="/cart" element={<Cart/>}/>
-                <Route path="/favorites" element={<Favorites/>}/>
-                <Route path="/details_product/:id" element={<DetailsProduct />} />
+                {routes.map((data, i) =>(
+                  <Route 
+                    key={i}
+                    exact
+                    path={`/${data.url}`}
+                    element={<data.element/>}
+                  />
+                ))}
               </Routes>
             <Footer/>
           </FavProvider>

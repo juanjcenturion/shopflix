@@ -31,7 +31,7 @@ export default function CartContent() {
     }, [cart]);
 
     return (
-        <div className="container grid grid-cols-1 pt-32 mx-auto">
+        <div className="container pt-32 mx-auto">
             <div className="grid grid-cols-12 from-indigo-200 pb-4 pt-2 to-white bg-gradient-to-b rounded-lg border shadow-sm">
                 {products.length === 0 ? (
                     <>

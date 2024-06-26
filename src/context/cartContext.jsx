@@ -9,11 +9,13 @@ export const CartProvider = ({ children }) => {
 
     const addToCart = (product) => {
         addProductToCart(product);
+        alert('Producto añadido al Carrito!')
         setCart(getCart());
     };
 
     const removeFromCart = (productId) => {
         removeProductFromCart(productId);
+        alert('Producto eliminado del Carrito!')
         setCart(getCart());
     };
 

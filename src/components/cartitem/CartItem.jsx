@@ -50,7 +50,7 @@ const CartItem = ({  product }) => {
                         </div>
                         <div className="col-span-12 mt-4 flex justify-between">
                             <h3 className="text-lg">Envío</h3>
-                            {product.shipping?.free_shipping ? (
+                            {product.product.shipping?.free_shipping ? (
                                 <div className="text-green-500 ml-2 pb-4 text-left text-lg font-medium">
                                     Gratis
                                 </div>

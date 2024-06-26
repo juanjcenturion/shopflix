@@ -8,11 +8,13 @@ export const FavProvider = ({ children }) => {
 
     const addToFav = (product) => {
         addProductToFav(product);
+        alert('Producto añadido a Favoritos!')
         setFav(getFav());
     };
 
     const removeFromFav = (productId) => {
         removeProductFromFav(productId);
+        alert('Producto eliminado de Favoritos!')
         setFav(getFav());
     };
 
