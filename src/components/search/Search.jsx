@@ -41,6 +41,7 @@ function Search() {
         clearSearch()
     }
 
+    console.log(searchResults)
     return (
         <div className="relative text-center ml-44">
             <div className="flex justify-center items-center">
@@ -86,10 +87,12 @@ function Search() {
                             </a>
                         ))}
                         {searchResults.length > 6 && (
+                            
                             <div className="text-center text-indigo-500 ml-2 mr-2 rounded mb-2 hover:bg-indigo-400 hover:text-white transition duration-500 p-5">
                                 <button onClick={manageViewMore} className="font-bold">
                                     Ver más productos similares
                                 </button>
+                                
                             </div>
                         )}
                     </>

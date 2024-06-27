@@ -27,7 +27,7 @@ export default function SelectedProducts () {
                         <div key={product.id} className="bg-white border pb-10 rounded-lg shadow-md px-4 text-center cursor-pointer transition-transform ease-linear duration-100s">
                             <Link to={`/details_product/${product.id}`} className=" mb-4 rounded-full hover:text-indigo-600">
                                 <img className="mt-8 mb-2 mx-auto" src={product.thumbnail} alt={product.title} />
-                                <a className="text-corte-2 text-left text-sm"  > {product.title} </a>
+                                <p className="text-corte-2 text-left text-sm"  > {product.title} </p>
                             </Link>
                             <div className="">
                                 <p className="ml-1 mt-3 text-2xl font-medium text-left">{formatearNumero(product.price)}</p>

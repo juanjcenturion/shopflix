@@ -1,4 +1,4 @@
-import MainProductDetails from "../components/product/MainProductDetails";
+import MainProductDetails from "../components/productdetailscontent/MainProductDetails"
 
 export default function DetailsProduct() {
 

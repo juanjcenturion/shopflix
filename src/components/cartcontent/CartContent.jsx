@@ -32,9 +32,9 @@ export default function CartContent() {
 
     return (
         <div className="container pt-32 mx-auto">
-            <div className="grid grid-cols-12 from-indigo-200 pb-4 pt-2 to-white bg-gradient-to-b rounded-lg border shadow-sm">
+            <div className="grid grid-cols-12 from-indigo-200 pb-4 pt-2 to-white bg-gradient-to-b rounded-lg border min-h-[720px] shadow-sm">
                 {products.length === 0 ? (
-                    <>
+                    <div className="col-span-12 pt-24">
                         <div className="flex justify-center col-span-12">
                             <svg viewBox="0 0 70 70" className=" flex justify-center max-h-44 max-w-44" xmlns="http://www.w3.org/2000/svg">
                                 <g id="Circle">
@@ -54,7 +54,7 @@ export default function CartContent() {
                                 ¡Su carrito esta vacío!
                             </p>
                         </div>
-                    </>
+                    </div>
                 ) : (
                     <>
                         <div className="col-span-8">

@@ -7,5 +7,22 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
-}
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.scrollbar-hide': {
+          'scrollbar-width': 'none',
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        },
+        '.scrollbar-default': {
+          'scrollbar-width': 'auto',
+          '&::-webkit-scrollbar': {
+            display: 'block',
+          },
+        },
+      });
+    },
+  ],
+};

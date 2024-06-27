@@ -1,6 +1,6 @@
 import { useState } from "react";
-import ProductSlide from "./ProductSlide";
-import ModalProduct from "./ProductSlide";
+import ProductSlide from "../productslide/ProductSlide";
+import ModalProduct from "../productslide/ProductSlide";
 
 export default function MainImages({ ARRAY_IMGS, ARRAY_IMG_SMALL }) {
     const [isOpenModal, setIsOpenModal] = useState(false);
@@ -19,7 +19,7 @@ export default function MainImages({ ARRAY_IMGS, ARRAY_IMG_SMALL }) {
                 ARRAY_IMGS={ARRAY_IMGS}
                 ARRAY_IMG_SMALL={ARRAY_IMG_SMALL}
                 isOpenModal={false}
-                className="grid grid-cols-7 pt-6 mt-24 w-full max-h-7  mx-auto"
+                className="mt-6 grid grid-cols-12"
                 handleOpenModal={handleOpenModal}
             />
             {isOpenModal && (

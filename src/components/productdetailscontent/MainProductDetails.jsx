@@ -1,13 +1,11 @@
-// MainProductDetails.jsx
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { GetProductById, GetSellerById } from "../../api/api"; // Asegúrate de que aquí esté importado correctamente
+import { GetProductById, GetSellerById } from "../../api/api"; 
 import { FaCircleArrowDown } from "react-icons/fa6";
 import { FaCircleArrowUp } from "react-icons/fa6";
-
-import ProductDetails from "./details/ProductDetails";
-import ProductGallery from "./gallery/ProductGallery";
-import ProductAttributes from "./attributes/ProductAttributes";
+import ProductDetails from "../productdetails/ProductDetails";
+import ProductGallery from "../productgallery/ProductGallery";
+import ProductAttributes from "../productattributes/ProductAttributes";
 
 const MainProductDetails = () => {
     const { id } = useParams();
@@ -50,10 +48,14 @@ const MainProductDetails = () => {
     if (!product) return <div>Producto no encontrado</div>;
 
     return (
-        <main className="container mx-auto from-indigo-200 to-white bg-gradient-to-b p-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <ProductGallery ARRAY_IMGS={images} ARRAY_IMG_SMALL={thumbnails} />
-                <ProductDetails product={product} seller={seller} />
+        <div className="container mx-auto from-white to-indigo-100 mt-24 border rounded-lg bg-gradient-to-b px-3 pt-2">
+            <div className="grid grid-cols-12">
+                <div className="grid col-span-4">
+                    <ProductGallery ARRAY_IMGS={images} ARRAY_IMG_SMALL={thumbnails} />
+                </div>
+                <div className="col-span-8 ml-8 pt-2">
+                    <ProductDetails product={product} seller={seller} />
+                </div>
             </div>
             <div className="flex flex-col items-center mt-4 w-full">
                 <hr className="border-1 rounded-lg border-gray-300 my-3 w-full" />
@@ -63,13 +65,13 @@ const MainProductDetails = () => {
                     </div>
                 )}
                 <button
-                    className="flex bg-slate-500 hover:bg-blue-500 text-white py-2 px-4 justify-center rounded mt-4 w-full"
+                    className="flex text-gray-400 px-4 pb-4 justify-center text-4xl hover:text-5xl hover:text-gray-500 transition-all ease-in-out duration-500 rounded mt-2"
                     onClick={() => setShowAttributes(!showAttributes)}
                 >
                     {showAttributes ? <FaCircleArrowUp /> : <FaCircleArrowDown />}
                 </button>
             </div>
-        </main>
+        </div>
     );
 };
 

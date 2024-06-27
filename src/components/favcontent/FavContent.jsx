@@ -33,9 +33,9 @@ export default function FavContent() {
     return(
         <div className="container grid grid-cols-1 pt-32 mx-auto">
             <h1 className="text-2xl font-bold pb-4 pl-2">Favoritos</h1>
-            <div className="grid grid-cols-12 from-indigo-200 pb-4 pt-2 to-white bg-gradient-to-b rounded-lg border shadow-sm">
+            <div className="grid grid-cols-12 from-indigo-200 pb-4 pt-2 min-h-[700px] to-white bg-gradient-to-b rounded-lg border shadow-sm">
                 {products.length === 0 ? (
-                    <>
+                    <div className="col-span-12 pt-24">
                     <div className="flex justify-center col-span-12">
                         <svg viewBox="0 0 512 512" className=" flex justify-center max-h-44 max-w-44"  xmlns="http://www.w3.org/2000/svg">
                             <path d="m512 256c0 141.386719-114.613281 256-256 256s-256-114.613281-256-256 114.613281-256 256-256 256 114.613281 256 256zm0 0" fill="#ffed93"/>
@@ -45,11 +45,11 @@ export default function FavContent() {
                         </svg>
                     </div>
                     <div className="flex justify-center col-span-12">
-                            <p className="text-center text-2xl font-bold pt-2 pb-8">
+                            <p className="text-center text-2xl font-bold pt-6 pb-8">
                                 ¡No contiene favoritos!
                             </p>
                         </div>
-                    </>
+                    </div>
                 ) : (
                     <>
                     <div className="col-span-12">

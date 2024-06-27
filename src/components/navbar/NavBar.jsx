@@ -1,6 +1,7 @@
 import SubMenu from "../submenu/SubMenu";
 import Search from "../search/Search";
 import { useCart } from "../../context/cartContext";
+import logotype from "../../assets/img/logotype.png"
 
 
 
@@ -12,7 +13,7 @@ export default function NavBar() {
             <div className="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
                 <div className="flex justify-between items-center">
                     <div className="flex justify-around items-center">
-                        <img src="src/assets/img/logotype.png" className="w-12 mr-2" />
+                        <img src={logotype} className="w-12 mr-2" />
                         <a className="flex text-gray-800 text-xl font-bold md:text-2xluppercase" href="/">
                             <p className="text-indigo-500 transition ease-in-out duration-300 hover:text-yellow-500" >Shop</p>
                             <p className="text-gray-800" >flix</p>
