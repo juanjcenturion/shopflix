@@ -1,4 +1,3 @@
-import React from "react";
 import { formatearNumero } from "../../utils/sepMiles";
 import { useCart } from "../../context/cartContext";
 import { useFav } from "../../context/favContext";

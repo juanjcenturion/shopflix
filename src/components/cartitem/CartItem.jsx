@@ -1,4 +1,3 @@
-import React from "react";
 import { formatearNumero } from "../../utils/sepMiles";
 import { useCart } from "../../context/cartContext";
 
@@ -10,7 +9,7 @@ const CartItem = ({  product }) => {
 
         if (newQuantity > 0) {
             updateQuantityInCart(product.product.id, newQuantity);
-        };
+        }
     };
     
     return (

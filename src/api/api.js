@@ -12,7 +12,7 @@ export async function GetAllCategories() {
     }
 }
 
-export async function GetProductById (id) {
+export async function GetProductById(id) {
     try {
         const response = await fetch(`https://api.mercadolibre.com/items/${id}`)
         if (!response.ok) {
@@ -27,7 +27,7 @@ export async function GetProductById (id) {
         }
         const descriptionData = await descriptionResponse.json();
 
-        return {...data, description: descriptionData.plain_text,}
+        return { ...data, description: descriptionData.plain_text, }
     } catch (error) {
         console.error('Error al obtener el producto:', error);
         throw error;
@@ -56,7 +56,7 @@ export async function fetchSelectedProducts(selectedIds) {
 
 export const SearchResults = async (query) => {
     try {
-        const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${query}`);
+        const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=6`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -68,17 +68,17 @@ export const SearchResults = async (query) => {
     }
 };
 
-export const getShippingMessage = (shippingMode) => {
-    switch (shippingMode) {
-      case 'me1':
-        return "Mercado Envíos 1: Calculador de envíos con elección de transportista por el vendedor.";
-      case 'me2':
-        return "Mercado Envíos 2: Envío recomendado con etiqueta y transportista predefinido.";
-      case 'custom':
-        return "Envío Personalizado: Tabla de costos definida por el vendedor.";
-      case 'not_specified':
-        return "Envío no especificado: Contacta al vendedor para acordar el costo.";
-      default:
-        return "Modo de envío desconocido.";
+//obtiene detalles de vendedor
+export async function GetSellerById(sellerId) {
+    try {
+        const response = await fetch(`https://api.mercadolibre.com/users/${sellerId}`);
+        if (!response.ok) {
+            throw new Error('Response not ok');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching seller:', error);
+        throw error;
     }
-};
+}

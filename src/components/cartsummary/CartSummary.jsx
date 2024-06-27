@@ -26,7 +26,7 @@ const CartSummary = ({ products }) => {
                     <p>Productos ({cartCount})</p>
                 </div>
                 <div className="col-span-6 mx-4 text-right mt-6">
-                     <p className="font-semibold">{formatearNumero(bruto)}</p>
+                    <p className="font-semibold">{formatearNumero(bruto)}</p>
                 </div>
                 <div className="col-span-6 mx-4 mt-6">
                     <p>Envío</p>

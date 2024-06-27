@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 
 export default function ProductSlide({
     ARRAY_IMGS = [],
@@ -30,13 +31,12 @@ export default function ProductSlide({
         <section {...props}>
             {isOpenModal && (
                 <button
-                    className="grid col-[8/8]"
+                    className="grid h-10 w-10 col-[8/8] place-items-center rounded-full  bg-indigo-500 hover:bg-yellow-400 shadow "
                     onClick={handleCloseModal}
-                >
-                    cerrar
+                >   <IoClose />
                 </button>
             )}
-            <div className="grid col-span-2 mx-auto">
+            <div className="grid col-span-2 mx-auto gap-1">
                 {ARRAY_IMG_SMALL.map((smallImg, idx) => (
                             <img
                                 key={idx}
@@ -51,12 +51,12 @@ export default function ProductSlide({
                 <img
                     src={ARRAY_IMGS[index]}
                     alt={`Product Image ${index + 1}`}
-                    className="cursor-pointer"
+                    className="cursor-pointer container  max-h-[610px]  mx-auto"
                     onClick={handleOpenModal}
                 />
                 <div
                     ref={btnSlider}
-                    className="absolute top-1/2 left-0 pr-20 flex w-full -translate-y-1/2 justify-between md:hidden"
+                    className="absolute top-1/2 left-5 pr-10 flex w-full -translate-y-1/2 justify-between md:hidden"
                 >
                     <button
                         className="grid h-10 w-10 place-items-center rounded-full bg-indigo-500 hover:bg-yellow-400 shadow"
